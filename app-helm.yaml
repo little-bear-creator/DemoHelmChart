@@ -11,9 +11,9 @@ spec:
     path: . 
     helm:
       releaseName: helmargo
-        valueFiles:
-          - values.yaml
-          - dev-values.yaml
+      valueFiles:
+        - values.yaml
+        - dev-values.yaml
   destination:
     server: "https://kubernetes.default.svc"
     namespace: spring-apps-dev
