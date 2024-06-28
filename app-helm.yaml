@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helmargo
+  namespace: argocd
+spec:
+  project: my-project
+  source:
+    repoURL: https://github.com/little-bear-creator/DemoHelmChart.git
+    targetRevision: main
+    path: . 
+    helm:
+      releaseName: helmargo
+        valueFiles:
+          - values.yaml
+          - dev-values.yaml
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: spring-apps-dev
